@@ -19,12 +19,14 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "spi.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
+#include "wifi.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -34,6 +36,9 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+/* Update SSID and PASSWORD with own Access point settings */
+#define SSID     "U+NetD0C1"
+#define PASSWORD "5C81216DM$"
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -65,7 +70,7 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+  uint8_t  IP_Addr[4];
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -85,10 +90,34 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  MX_GPIO_Init();
+//  MX_GPIO_Init();
   MX_USART1_UART_Init();
+//  MX_SPI3_Init();
   /* USER CODE BEGIN 2 */
-  printf("Application Start\r\n");
+	printf("Application Start\r\n");
+
+	/*Initialize  WIFI module */
+	if(WIFI_Init() ==  WIFI_STATUS_OK)
+	{
+		printf("> WIFI Module Initialized.\n");
+
+		if( WIFI_Connect(SSID, PASSWORD, WIFI_ECN_WPA2_PSK) == WIFI_STATUS_OK)
+		{
+			if(WIFI_GetIP_Address(IP_Addr) == WIFI_STATUS_OK)
+			{
+				printf("> es-wifi module got IP Address : %d.%d.%d.%d\n",
+						IP_Addr[0], IP_Addr[1], IP_Addr[2], IP_Addr[3]);
+			}
+			else
+			{
+				printf("> ERROR : es-wifi module CANNOT get IP address\n");
+			}
+		}
+		else
+		{
+			printf("> ERROR : es-wifi module NOT connected\n");
+		}
+	}
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -166,7 +195,21 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	switch (GPIO_Pin)
+	{
+		case (ISM43362_DATARDY_Pin):
+		{
+			SPI_WIFI_ISR();
+			break;
+		}
+		default:
+		{
+			break;
+		}
+	}
+}
 /* USER CODE END 4 */
 
 /**
