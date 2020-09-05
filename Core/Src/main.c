@@ -19,6 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "cmsis_os.h"
 #include "spi.h"
 #include "usart.h"
 #include "gpio.h"
@@ -26,7 +27,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
-#include "wifi.h"
+#include <wifi.h_bak>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -36,9 +37,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-/* Update SSID and PASSWORD with own Access point settings */
-#define SSID     "U+NetD0C1"
-#define PASSWORD "5C81216DM$"
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -54,6 +53,7 @@
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -70,7 +70,7 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  uint8_t  IP_Addr[4];
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -95,31 +95,14 @@ int main(void)
 //  MX_SPI3_Init();
   /* USER CODE BEGIN 2 */
 	printf("Application Start\r\n");
-
-	/*Initialize  WIFI module */
-	if(WIFI_Init() ==  WIFI_STATUS_OK)
-	{
-		printf("> WIFI Module Initialized.\n");
-
-		if( WIFI_Connect(SSID, PASSWORD, WIFI_ECN_WPA2_PSK) == WIFI_STATUS_OK)
-		{
-			if(WIFI_GetIP_Address(IP_Addr) == WIFI_STATUS_OK)
-			{
-				printf("> es-wifi module got IP Address : %d.%d.%d.%d\n",
-						IP_Addr[0], IP_Addr[1], IP_Addr[2], IP_Addr[3]);
-			}
-			else
-			{
-				printf("> ERROR : es-wifi module CANNOT get IP address\n");
-			}
-		}
-		else
-		{
-			printf("> ERROR : es-wifi module NOT connected\n");
-		}
-	}
   /* USER CODE END 2 */
 
+  /* Call init function for freertos objects (in freertos.c) */
+  MX_FREERTOS_Init();
+  /* Start scheduler */
+  osKernelStart();
+
+  /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -211,6 +194,27 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	}
 }
 /* USER CODE END 4 */
+
+/**
+  * @brief  Period elapsed callback in non blocking mode
+  * @note   This function is called  when TIM6 interrupt took place, inside
+  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+  * a global variable "uwTick" used as application time base.
+  * @param  htim : TIM handle
+  * @retval None
+  */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  /* USER CODE BEGIN Callback 0 */
+
+  /* USER CODE END Callback 0 */
+  if (htim->Instance == TIM6) {
+    HAL_IncTick();
+  }
+  /* USER CODE BEGIN Callback 1 */
+
+  /* USER CODE END Callback 1 */
+}
 
 /**
   * @brief  This function is executed in case of error occurrence.

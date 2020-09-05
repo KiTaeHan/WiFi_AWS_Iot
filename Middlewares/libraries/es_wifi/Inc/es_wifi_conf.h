@@ -24,7 +24,7 @@
  extern "C" {
 #endif  
 
-//#define WIFI_USE_CMSIS_OS
+#define WIFI_USE_CMSIS_OS
 
 #ifdef WIFI_USE_CMSIS_OS
 #include "cmsis_os.h"
@@ -37,7 +37,7 @@ extern osMutexId es_wifi_mutex;
 #define UNLOCK_WIFI()           osMutexRelease(es_wifi_mutex)
 #define SEM_SIGNAL(a)           osSemaphoreRelease(a)
 #define SEM_WAIT(a,timeout)     osSemaphoreWait(a,timeout)
-#define SPI_INTERFACE_PRIO              configMAX_SYSCALL_INTERRUPT_PRIORITY
+#define SPI_INTERFACE_PRIO		5
 #else
 
 #define LOCK_WIFI()
@@ -45,7 +45,7 @@ extern osMutexId es_wifi_mutex;
 #define LOCK_SPI()
 #define UNLOCK_SPI()
 #define SEM_SIGNAL(a)
-#define SPI_INTERFACE_PRIO              0
+#define SPI_INTERFACE_PRIO              5
 #endif
 
 #define ES_WIFI_MAX_SSID_NAME_SIZE                  32
