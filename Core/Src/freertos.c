@@ -33,6 +33,7 @@
 #include "iot_wifi.h"
 #endif
 #include "aws_clientcredential.h"
+#include "aws_dev_mode_key_provisioning.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -115,7 +116,7 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 384);
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
@@ -233,6 +234,11 @@ void Wifi_conTest(void)
     if( xWifiStatus == eWiFiSuccess )
     {
     	printf("WiFi module initialized.\r\n");
+
+    	/* A simple example to demonstrate key and certificate provisioning in microcontroller flash using PKCS#11 interface.
+    	 * This should be replaced by production ready key provisioning mechanism.
+    	 */
+    	vDevModeKeyProvisioning();
 
     	prvWifiConnect();
     }

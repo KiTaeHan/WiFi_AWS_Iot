@@ -25,7 +25,7 @@
 							<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.option.fpu.1225638474" name="Floating-point unit" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.option.fpu" value="com.st.stm32cube.ide.mcu.gnu.managedbuild.option.fpu.value.fpv4-sp-d16" valueType="enumerated"/>
 							<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.option.floatabi.1333671989" name="Floating-point ABI" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.option.floatabi" value="com.st.stm32cube.ide.mcu.gnu.managedbuild.option.floatabi.value.hard" valueType="enumerated"/>
 							<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_board.703346112" name="Board" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_board" value="genericBoard" valueType="string"/>
-							<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.option.defaults.715841490" name="Defaults" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.option.defaults" value="com.st.stm32cube.ide.common.services.build.inputs.revA.1.0.3 || Debug || true || Executable || com.st.stm32cube.ide.mcu.gnu.managedbuild.toolchain.base.gnu-tools-for-stm32 || STM32L475VGTx || 0 || 0 || arm-none-eabi- || ${gnu_tools_for_stm32_compiler_path} || ../Drivers/CMSIS/Include | ../Core/Inc | ../Drivers/CMSIS/Device/ST/STM32L4xx/Include | ../Drivers/STM32L4xx_HAL_Driver/Inc | ../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy | ../Middlewares/Third_Party/FreeRTOS/Source/include | ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS | ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F ||  ||  || USE_HAL_DRIVER | STM32L475xx ||  || Drivers | Core/Startup | Middlewares | Core ||  ||  || ${workspace_loc:/${ProjName}/STM32L475VGTX_FLASH.ld} || true || NonSecure ||  || secure_nsclib.o || " valueType="string"/>
+							<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.option.defaults.715841490" name="Defaults" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.option.defaults" value="com.st.stm32cube.ide.common.services.build.inputs.revA.1.0.3 || Debug || true || Executable || com.st.stm32cube.ide.mcu.gnu.managedbuild.toolchain.base.gnu-tools-for-stm32 || STM32L475VGTx || 0 || 0 || arm-none-eabi- || ${gnu_tools_for_stm32_compiler_path} || ../Middlewares/Third_Party/FreeRTOS/Source/include | ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F | ../Drivers/CMSIS/Include | ../Core/Inc | ../Drivers/CMSIS/Device/ST/STM32L4xx/Include | ../Drivers/STM32L4xx_HAL_Driver/Inc | ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS | ../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy ||  ||  || USE_HAL_DRIVER | STM32L475xx ||  || Drivers | Core/Startup | Middlewares | Core ||  ||  || ${workspace_loc:/${ProjName}/STM32L475VGTX_FLASH.ld} || true || NonSecure ||  || secure_nsclib.o || " valueType="string"/>
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.targetplatform.488292319" isAbstract="false" osList="all" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.targetplatform"/>
 							<builder buildPath="${workspace_loc:/WiFi_AWS_Iot}/Debug" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.builder.1614992364" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.builder"/>
 							<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.1623237465" name="MCU GCC Assembler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler">
@@ -33,6 +33,20 @@
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.option.includepaths.1955946084" name="Include paths (-I)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.option.includepaths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/es_wifi/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/demos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/demos/dev_mode_key_provisioning/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/freertos_plus/standard/pkcs11/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/config_files}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/3rdparty/pkcs11}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/3rdparty/mbedtls/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/abstractions/pkcs11/mbedtls}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/abstractions/pkcs11/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/c_sdk/standard/common/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/abstractions/platform/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/abstractions/platform/freertos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/abstractions/secure_sockets/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/freertos_plus/standard/utils/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/freertos_plus/standard/crypto/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/3rdparty/mbedtls_utils}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input.1814537781" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input"/>
 							</tool>
@@ -41,6 +55,7 @@
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.optimization.level.1676828202" name="Optimization level" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.optimization.level" useByScannerDiscovery="false"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.definedsymbols.267414979" name="Define symbols (-D)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.definedsymbols" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
+									<listOptionValue builtIn="false" value="MBEDTLS_CONFIG_FILE=&lt;aws_mbedtls_config.h&gt;"/>
 									<listOptionValue builtIn="false" value="DEBUG"/>
 									<listOptionValue builtIn="false" value="STM32L475xx"/>
 								</option>
@@ -55,6 +70,20 @@
 									<listOptionValue builtIn="false" value="../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/es_wifi/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/demos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/demos/dev_mode_key_provisioning/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/freertos_plus/standard/pkcs11/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/config_files}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/3rdparty/pkcs11}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/3rdparty/mbedtls/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/abstractions/pkcs11/mbedtls}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/abstractions/pkcs11/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/c_sdk/standard/common/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/abstractions/platform/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/abstractions/platform/freertos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/abstractions/secure_sockets/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/freertos_plus/standard/utils/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/freertos_plus/standard/crypto/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/3rdparty/mbedtls_utils}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1780784768" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
@@ -83,7 +112,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Core"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="Core"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="Middlewares"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
 					</sourceEntries>
@@ -123,6 +152,20 @@
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.option.includepaths.774796475" name="Include paths (-I)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.option.includepaths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/es_wifi/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/demos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/demos/dev_mode_key_provisioning/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/freertos_plus/standard/pkcs11/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/config_files}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/3rdparty/pkcs11}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/3rdparty/mbedtls/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/abstractions/pkcs11/mbedtls}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/abstractions/pkcs11/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/c_sdk/standard/common/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/abstractions/platform/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/abstractions/platform/freertos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/abstractions/secure_sockets/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/freertos_plus/standard/utils/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/freertos_plus/standard/crypto/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/3rdparty/mbedtls_utils}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input.669766602" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input"/>
 							</tool>
@@ -144,6 +187,20 @@
 									<listOptionValue builtIn="false" value="../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"/>
 									<listOptionValue builtIn="false" value="../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/demos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/demos/dev_mode_key_provisioning/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/freertos_plus/standard/pkcs11/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/config_files}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/3rdparty/pkcs11}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/3rdparty/mbedtls/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/abstractions/pkcs11/mbedtls}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/abstractions/pkcs11/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/c_sdk/standard/common/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/abstractions/platform/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/abstractions/platform/freertos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/abstractions/secure_sockets/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/freertos_plus/standard/utils/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/freertos_plus/standard/crypto/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/3rdparty/mbedtls_utils}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.984572457" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
@@ -172,7 +229,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Core"/>
+						<entry excluding="ports" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Core"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Middlewares"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
 					</sourceEntries>

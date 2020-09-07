@@ -55,13 +55,15 @@
  *
  * @todo If you are using Wi-Fi, set this to your network name.
  */
-#define clientcredentialWIFI_SSID                    "U+NetD0C1"
+//#define clientcredentialWIFI_SSID                    "U+NetD0C1"
+#define clientcredentialWIFI_SSID                    "CodeZoo_2.4GHz"
 
 /*
  * @brief Password needed to join Wi-Fi network.
  * @todo If you are using WPA, set this to your network password.
  */
-#define clientcredentialWIFI_PASSWORD                "5C81216DM$"
+//#define clientcredentialWIFI_PASSWORD                "5C81216DM$"
+#define clientcredentialWIFI_PASSWORD                "gamepark"
 
 /*
  * @brief Wi-Fi network security type.

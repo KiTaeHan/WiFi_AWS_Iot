@@ -63,8 +63,8 @@
 #define configCPU_CLOCK_HZ                       ( SystemCoreClock )
 #define configTICK_RATE_HZ                       ((TickType_t)1000)
 #define configMAX_PRIORITIES                     ( 7 )
-#define configMINIMAL_STACK_SIZE                 ((uint16_t)256)
-#define configTOTAL_HEAP_SIZE                    ((size_t)60 * 1024)
+#define configMINIMAL_STACK_SIZE                 ((uint16_t)128)
+#define configTOTAL_HEAP_SIZE                    ((size_t)3000)
 #define configMAX_TASK_NAME_LEN                  ( 16 )
 #define configUSE_16_BIT_TICKS                   0
 #define configUSE_MUTEXES                        1
@@ -120,6 +120,17 @@ See http://www.FreeRTOS.org/RTOS-Cortex-M3-M4.html. */
 header file. */
 /* USER CODE BEGIN 1 */
 #define configASSERT( x ) if ((x) == 0) {taskDISABLE_INTERRUPTS(); for( ;; );}
+
+/* Map the logging task's printf to the board specific output function. */
+#define configPRINT_STRING( x )    vMainUARTPrintString( x );
+
+/* Sets the length of the buffers into which logging messages are written - so
+ * also defines the maximum length of each log message. */
+#define configLOGGING_MAX_MESSAGE_LENGTH            800
+
+/* Set to 1 to prepend each log message with a message number, the task name,
+ * and a time stamp. */
+#define configLOGGING_INCLUDE_TIME_AND_TASK_NAME    1
 /* USER CODE END 1 */
 
 /* Definitions that map the FreeRTOS port interrupt handlers to their CMSIS
