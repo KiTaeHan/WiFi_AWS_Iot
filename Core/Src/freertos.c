@@ -27,11 +27,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
-#if 0
-#include "wifi.h"
-#else
+
 #include "iot_wifi.h"
-#endif
 #include "aws_clientcredential.h"
 #include "aws_dev_mode_key_provisioning.h"
 /* USER CODE END Includes */
@@ -43,12 +40,6 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
-/* Update SSID and PASSWORD with own Access point settings */
-#if 0
-#define AP_SSID     "U+NetD0C1"
-#define AP_PASSWORD "5C81216DM$"
-#endif
 
 /* USER CODE END PD */
 
@@ -135,7 +126,7 @@ void MX_FREERTOS_Init(void) {
 void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
-	Wifi_conTest();
+	Network_Init();
   /* Infinite loop */
   for(;;)
   {
@@ -146,35 +137,7 @@ void StartDefaultTask(void const * argument)
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
-#if 0
-void Wifi_conTest(void)
-{
-	uint8_t  IP_Addr[4];
 
-	/*Initialize  WIFI module */
-	if(WIFI_Init() ==  WIFI_STATUS_OK)
-	{
-		printf("> WIFI Module Initialized.\n");
-
-		if( WIFI_Connect(AP_SSID, AP_PASSWORD, WIFI_ECN_WPA2_PSK) == WIFI_STATUS_OK)
-		{
-			if(WIFI_GetIP_Address(IP_Addr) == WIFI_STATUS_OK)
-			{
-				printf("> es-wifi module got IP Address : %d.%d.%d.%d\n",
-						IP_Addr[0], IP_Addr[1], IP_Addr[2], IP_Addr[3]);
-			}
-			else
-			{
-				printf("> ERROR : es-wifi module CANNOT get IP address\n");
-			}
-		}
-		else
-		{
-			printf("> ERROR : es-wifi module NOT connected\n");
-		}
-	}
-}
-#else
 static void prvWifiConnect( void )
 {
     WIFINetworkParams_t xNetworkParams;
@@ -206,26 +169,10 @@ static void prvWifiConnect( void )
     {
         /* Connection failed configure softAP to allow user to set wifi credentials. */
         printf("WiFi failed to connect to AP %s.\r\n", xNetworkParams.pcSSID);
-
-        /*
-        xNetworkParams.pcSSID = wificonfigACCESS_POINT_SSID_PREFIX;
-        xNetworkParams.pcPassword = wificonfigACCESS_POINT_PASSKEY;
-        xNetworkParams.xSecurity = wificonfigACCESS_POINT_SECURITY;
-        xNetworkParams.cChannel = wificonfigACCESS_POINT_CHANNEL;
-
-        printf( ( "Connect to softAP %s using password %s. \r\n",
-                        xNetworkParams.pcSSID, xNetworkParams.pcPassword ) );
-        while( WIFI_ConfigureAP( &xNetworkParams ) != eWiFiSuccess )
-        {
-            printf( ( "Connect to softAP %s using password %s and configure WiFi. \r\n",
-                            xNetworkParams.pcSSID, xNetworkParams.pcPassword ) );
-        }
-        printf( ( "WiFi configuration successful. \r\n", xNetworkParams.pcSSID ) );
-        */
     }
 }
 
-void Wifi_conTest(void)
+void Network_Init(void)
 {
     WIFIReturnCode_t xWifiStatus;
 
@@ -247,7 +194,6 @@ void Wifi_conTest(void)
 
     }
 }
-#endif
 /* USER CODE END Application */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
