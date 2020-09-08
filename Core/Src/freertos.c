@@ -29,8 +29,10 @@
 #include <stdio.h>
 
 #include "iot_wifi.h"
+#include "iot_system_init.h"
 #include "aws_clientcredential.h"
 #include "aws_dev_mode_key_provisioning.h"
+#include "aws_demo.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,7 +58,7 @@ osThreadId defaultTaskHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
-void Wifi_conTest(void);
+void Network_Init(void);
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
@@ -190,6 +192,8 @@ void Network_Init(void)
     	if(SYSTEM_Init() == pdPASS)
     	{
     		prvWifiConnect();
+    		/* Start demos. */
+    		DEMO_RUNNER_RunDemos();
     	}
 
     }

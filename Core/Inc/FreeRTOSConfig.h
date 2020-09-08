@@ -132,8 +132,15 @@ header file. */
  * and a time stamp. */
 #define configLOGGING_INCLUDE_TIME_AND_TASK_NAME    1
 
+#define configUSE_COUNTING_SEMAPHORES				1
 #define configUSE_RECURSIVE_MUTEXES					1
-/* USER CODE END 1 */
+
+/* Software timer related definitions. */
+#define configUSE_TIMERS                           1
+#define configTIMER_TASK_PRIORITY                  ( configMAX_PRIORITIES - 1 )
+#define configTIMER_QUEUE_LENGTH                   5
+#define configTIMER_TASK_STACK_DEPTH               ( configMINIMAL_STACK_SIZE * 2 )
+/* USER CODEoj END 1 */
 
 /* Definitions that map the FreeRTOS port interrupt handlers to their CMSIS
 standard names. */

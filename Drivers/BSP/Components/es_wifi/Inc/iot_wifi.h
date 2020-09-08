@@ -38,7 +38,7 @@
 
 /* Wi-Fi configuration includes. */
 //#include "aws_wifi_config.h"
-//#include "types/iot_network_types.h"
+#include "types/iot_network_types.h"
 
 /**
  * @brief Max SSID length
@@ -66,16 +66,6 @@
  * @brief Maximum number of connected station in Access Point mode.
  */
 #define wificonfigMAX_CONNECTED_STATIONS      ( 4 )
-
-/**
- * @brief Enum types representing states for different networks.
- */
-typedef enum AwsIotNetworkState
-{
-    eNetworkStateUnknown = 0, /*!< eNetworkStateUnknown State of the network is unknown */
-    eNetworkStateDisabled,    /*!< eNetworkStateDisabled State of the network is disabled/disconnected */
-    eNetworkStateEnabled      /*!< eNetworkStateEnabled  State of the network is enabled and connected. */
-} AwsIotNetworkState_t;
 
 /**
  * @brief Callback invoked by a driver to post network state change events.
