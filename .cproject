@@ -68,7 +68,7 @@
 									<listOptionValue builtIn="false" value="../Middlewares/Third_Party/FreeRTOS/Source/include"/>
 									<listOptionValue builtIn="false" value="../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"/>
 									<listOptionValue builtIn="false" value="../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/es_wifi/Inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Drivers/BSP/Components/es_wifi/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/demos/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/demos/dev_mode_key_provisioning/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/WiFi_AWS_Iot/Middlewares/libraries/freertos_plus/standard/pkcs11/include}&quot;"/>
