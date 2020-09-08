@@ -131,6 +131,8 @@ header file. */
 /* Set to 1 to prepend each log message with a message number, the task name,
  * and a time stamp. */
 #define configLOGGING_INCLUDE_TIME_AND_TASK_NAME    1
+
+#define configUSE_RECURSIVE_MUTEXES					1
 /* USER CODE END 1 */
 
 /* Definitions that map the FreeRTOS port interrupt handlers to their CMSIS

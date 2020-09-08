@@ -240,7 +240,11 @@ void Wifi_conTest(void)
     	 */
     	vDevModeKeyProvisioning();
 
-    	prvWifiConnect();
+    	if(SYSTEM_Init() == pdPASS)
+    	{
+    		prvWifiConnect();
+    	}
+
     }
 }
 #endif
